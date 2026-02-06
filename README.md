@@ -1,86 +1,68 @@
-# Gradient Descent for Linear Regression
 
-**Name:** Rajavamshi Samudrala  
-**Student ID:** 700774318  
+# 🚀 Gradient Descent for Linear Regression
 
----
+##  Student Info
 
-## 📌 Problem Overview
-
-Implement Linear Regression using two approaches:
-
-1. Closed-form solution (Normal Equation)  
-2. Gradient Descent (From scratch — no scikit-learn)
-
-Compare both methods using the same synthetic dataset.
+* **Name:** RAJAVAMSHI SAMUDRALA
+* **Student ID:** 700774318
+* **Assignment:** Implement Gradient Descent for Linear Regression (without using scikit-learn’s `LinearRegression`)
 
 ---
 
-## 🧠 Dataset
+### 📖 Problem Statement
 
-Generate synthetic data using the following equation:
-
-\[
-y = 3 + 4x + \epsilon
-\]
-
-where:
-- \( \epsilon \) is Gaussian noise  
-- x values are sampled uniformly in \([0,5]\)  
-- Total samples = **200**
+Implement Linear Regression from scratch using both the **Normal Equation** and **Gradient Descent**, train both on the same dataset, and compare their results to evaluate differences in parameters, predictions, and efficiency.
 
 ---
 
-## 🛠 Solution Approaches
+### 📊 Dataset
 
-### ➤ Closed-Form Solution (Normal Equation)
-
-Compute:
-
-\[
-\theta = (X^TX)^{-1}X^Ty
-\]
-
-This yields the optimal intercept and slope directly using matrix algebra.
+* Generated a dataset of **200 samples**
+* $y = 3 + 4x + \epsilon$, where $\epsilon$ is Gaussian noise
+* $x \in [0,5]$ uniformly sampled
 
 ---
 
-### ➤ Gradient Descent Implementation
+### 🛠️ Implementation
 
-Implemented from scratch with:
-- Initial parameters: \( \theta = [0, 0] \)
-- Learning rate: \( \eta = 0.05 \)
-- Iterations: 1000
+#### 1️⃣ Dataset Generation
 
-Tracks Mean Squared Error (MSE) over iterations and updates θ using:
+* Generated 200 data samples
+* Added Gaussian noise to the data
+* Visualized the raw dataset with a plot
 
-\[
-\theta := \theta - \eta \cdot \frac{2}{m} X^T(X\theta - y)
-\]
+#### 2️⃣ Closed-Form Solution (Normal Equation)
 
----
+* Added a bias column of 1’s to $X$
+* Calculated model parameters using $\theta = (X^T X)^{-1} X^T y$
+* Printed the intercept and slope values
+* Plotted the fitted regression line over the raw data
 
-## 📊 Output Visualizations
+#### 3️⃣ Gradient Descent
 
-Notebook includes:
+* Initialized $\theta = [0,0]$
+* Set learning rate $\eta = 0.05$
+* Plotted the loss curve (MSE vs. iterations)
+* Displayed the final intercept and slope values
 
-- Raw synthetic dataset (scatter plot)
-- Fitted line from Normal Equation
-- Fitted line from Gradient Descent
-- Loss curve (MSE vs iterations)
+#### 4️⃣ Comparison
 
----
-
-## 📈 Results & Comparison
-
-Both methods produce nearly identical estimates for the intercept and slope.  
-This confirms that Gradient Descent converges to the same solution as the closed-form Normal Equation when configured with an appropriate learning rate and number of iterations.
+* Reported parameters obtained from both methods
+* Verified convergence between the two approaches
 
 ---
 
-## 📎 Files
+### 📈 Results
 
-- `Gradient_Descent_Linear_Regression.ipynb` — Colab notebook with full implementation  
-- Plots generated in notebook (inline)
+| Method               | Intercept | Slope  |
+| -------------------- | --------- | ------ |
+| **Closed-Form**      | 2.8452    | 4.0456 |
+| **Gradient Descent** | 2.8452    | 4.0456 |
+
+✅ Both methods converged to **nearly the same solution**.
 
 ---
+
+### 📝 Short Explanation
+
+The parameters obtained from both methods were essentially the same — **Closed-Form:** Intercept = 2.8452, Slope = 4.0456; **Gradient Descent:** Intercept = 2.8452, Slope = 4.0456. This demonstrates that Gradient Descent converged to the same optimal values as the Normal Equation, confirming that both approaches minimize the same convex MSE cost function.
